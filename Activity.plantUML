@@ -1,0 +1,22 @@
+@startuml
+
+start
+
+:User Search Car;
+:Choose Tier of the Car;
+:Pay for trip;
+
+if (Driver accept the order?) then (yes)
+    :Search nearest driver with acceptable tier;
+    :Wait for driver;
+    :Reach Destination;
+    :Rate driver;
+else (no)
+    :Cancel order;
+    :Refund money;
+endif
+
+:Exit from app;
+stop
+
+@enduml

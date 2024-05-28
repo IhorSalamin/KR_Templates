@@ -1,0 +1,30 @@
+@startuml
+
+actor Customer
+actor Driver
+
+Customer -> App: Login
+App -> Server: Login
+Server -> App: Login successful
+App -> Customer: Login approved
+
+Customer -> App: Choose destination
+Customer -> App: Choose Tier
+Customer -> App: Choose Time (opt)
+Customer -> App: Price
+Customer -> App: Pay the bill
+App -> Server: Create payment
+Server -> Booking: Payment link/credentials
+Booking -> Server: Check payment
+Server -> App: Payment successful
+App -> Customer: Display successful payment message
+
+App -> Server: Search car
+Server -> Booking: Search car
+Booking -> Driver: Contact Driver
+Driver -> Booking: Driver accept trip
+Booking -> Server: Driver found
+Server -> App: Driver found
+App -> Customer: Display driver found message
+
+@enduml
