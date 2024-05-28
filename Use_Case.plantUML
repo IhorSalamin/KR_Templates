@@ -1,0 +1,40 @@
+@startuml
+
+rectangle "CarRentalSystem" {
+  rectangle "Register/Login" as UC1
+  rectangle "Select Car Tier" as UC2
+  rectangle "Reserve a Car" as UC3
+  rectangle "Search Car" as UC4
+  rectangle "Pay the Bill" as UC5
+  rectangle "Cancel Order" as UC6
+  rectangle "Find a Driver" as UC7
+  rectangle "Accept Travel" as UC8
+  rectangle "Travel" as UC9
+  rectangle "Reach Destination" as UC10
+  rectangle "Rate the Driver" as UC11
+}
+
+actor "Customer" as A1
+actor "Driver" as A2
+actor "Controller" as A3
+
+A1 --> UC1
+A1 --> UC2
+A1 --> UC3
+A1 --> UC4
+A1 --> UC5
+A1 --> UC6
+A1 --> UC7
+A1 --> UC8
+A1 --> UC9
+A1 --> UC10
+A1 --> UC11
+
+A2 --> UC8
+A2 --> UC9
+A2 --> UC10
+A2 --> UC11
+
+A3 --> UC1
+
+@enduml

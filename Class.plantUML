@@ -1,0 +1,94 @@
+@startuml
+
+class User {
+    +userId
+    +userName
+    +userEmail
+    +userPhone
+    +userPassword
+    +userGender
+    +userRole
+    +userDetails
+    +createNewUser()
+    +modifyUser()
+}
+
+class Car {
+    +carId
+    +carUserRef
+    +carModel
+    +carTierRef
+    +carLocation
+    +modifyCar()
+    +createNewCar()
+    +refreshLocation()
+}
+
+class Booking {
+    +bookingId
+    +bookingDriverRef
+    +bookingCustomerRef
+    +bookingTime
+    +bookingDuration
+    +bookingStatus
+    +bookingStartPoint
+    +bookingEndPoint
+    +createBooking()
+    +updateStatus()
+    +modifyUser()
+}
+
+class Tier {
+    +tierId
+    +tierName
+    +tierPrice
+    +tierOrder
+    +modifyTier()
+    +createNewTier()
+}
+
+class Server {
+    +serverID
+    +serverStatus
+    +serverLocation
+    +login()
+    +calcPrice()
+    +createBooking()
+    +searchAvailableCar()
+    +processPayment()
+    +rateDriver()
+    +getTierList()
+    +contactSupport()
+}
+
+class Message {
+    +messageId
+    +messageTime
+    +messageSenderRef
+    +messageRecipientRef
+    +messagePriority
+    +messageContext
+    +messageAttachments
+    +messageBookingRef
+    +createMessage()
+    +updateMessage()
+    +getMessageThread()
+}
+
+class Rate {
+    +rateId
+    +rateSenderRef
+    +rateRecipientRef
+    +rateStars
+    +rateDescription
+    +createNewRate()
+}
+
+User --> Booking
+Booking --> Car
+Booking --> Tier
+Booking --> Server
+Booking --> Message
+Booking --> Rate
+
+@enduml
