@@ -37,3 +37,26 @@ class Car:
         VALUES (%s, %s, %s, %s)
         """
         db.execute_query(query, (car_user_ref, car_model, car_tier_ref, car_location))
+
+    @staticmethod
+    def get_report():
+        db = Database()
+        query = """
+        SELECT 
+            Cars.CarID,
+            Cars.CarModel,
+            Cars.CarLocation,
+            COUNT(Bookings.BookingID) AS TotalBookings,
+            SUM(IF(Bookings.BookingStatus = 'Completed', 1, 0)) AS CompletedBookings,
+            SUM(IF(Bookings.BookingStatus = 'Pending', 1, 0)) AS PendingBookings,
+            SUM(IF(Bookings.BookingStatus = 'Cancelled', 1, 0)) AS CancelledBookings,
+            SUM(FinancialRecords.Revenue) AS TotalRevenue,
+            SUM(FinancialRecords.Costs) AS TotalCosts,
+            SUM(FinancialRecords.Profit) AS TotalProfit
+        FROM Cars
+        LEFT JOIN Bookings ON Cars.CarID = Bookings.CarID
+        LEFT JOIN FinancialRecords ON Bookings.BookingID = FinancialRecords.BookingID
+        GROUP BY Cars.CarID, Cars.CarModel, Cars.CarLocation
+        """
+        results = db.execute_query(query)
+        return results
