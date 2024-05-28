@@ -28,3 +28,8 @@ def add_car():
 
     Car.add_car(car_user_ref, car_model, car_tier_ref, car_location)
     return jsonify({'message': 'Car added successfully'}), 201
+
+@car_controller.route('/car/report', methods=['GET'])
+def get_car_report():
+    report = Car.get_report()
+    return jsonify(report)
