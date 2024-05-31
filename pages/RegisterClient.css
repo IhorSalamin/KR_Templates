@@ -1,0 +1,21 @@
+.two form{
+   display: flex;
+   justify-content: space-around;
+}
+
+.two fieldset{
+   width: 13vw;
+   height: 13vw;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+   border-radius: 10%;
+}
+
+.two input{
+   margin-bottom: 20px;
+   border: 2px solid;
+   border-radius: 5%;
+   border-color: black;
+}
