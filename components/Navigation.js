@@ -15,6 +15,9 @@ const Navigation = () => {
         <li>
           <NavLink to="/create-booking">Створити бронювання</NavLink>
         </li>
+        <li>
+          <NavLink to="/bookings">Переглянути бронювання</NavLink>
+        </li>
       </ul>
     </nav>
   );

@@ -7,12 +7,14 @@
    width: 13vw;
    height:27vw;
    display: flex;
+   justify-content: center;
    flex-direction: column;
    align-items: center;
    border-radius: 5%;
 }
 
-.one input{
+.one input, select{
    margin-bottom: 20px;
    border-radius: 10%;
+   border: 2px solid;
 }

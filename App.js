@@ -4,6 +4,7 @@ import CarList from './components/CarList';
 import RegisterClient from './pages/RegisterClient';
 import CreateBooking from './pages/CreateBooking';
 import Navigation from './components/Navigation';
+import AllBookings from './pages/AllBookings';
 import './App.css';
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
                <Route path="/cars" element={<CarList />} />
                <Route path="/register-client" element={<RegisterClient />} />
                <Route path="/create-booking" element={<CreateBooking />} />
+               <Route path="/bookings" element={<AllBookings />} />
             </Routes>
          </div>
       </Router>

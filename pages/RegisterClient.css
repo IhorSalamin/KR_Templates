@@ -5,12 +5,12 @@
 
 .two fieldset{
    width: 13vw;
-   height: 13vw;
    display: flex;
+   height: 27vw;
    justify-content: center;
    flex-direction: column;
    align-items: center;
-   border-radius: 10%;
+   border-radius: 5%;
 }
 
 .two input{
