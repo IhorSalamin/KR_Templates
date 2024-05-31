@@ -1,8 +1,18 @@
-from flask import Flask
+from flask import Flask, request
+from flask_cors import CORS
 
 def create_app():
     app = Flask(__name__)
     app.config.from_object('app.config.Config')
+
+    # Налаштовуємо CORS для всього додатку з дозволом всіх методів та заголовків
+    CORS(app, resources={r"/*": {"origins": "*", "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"], "allow_headers": ["Content-Type", "Authorization"]}})
+
+    # Додаємо обробку для запитів OPTIONS
+    @app.before_request
+    def handle_options_requests():
+        if request.method == 'OPTIONS':
+            return '', 200
 
     with app.app_context():
         from app.controllers.user_controller import user_controller
@@ -22,3 +32,7 @@ def create_app():
         app.register_blueprint(server_controller, url_prefix='/api')
 
     return app
+
+if __name__ == "__main__":
+    app = create_app()
+    app.run(debug=True)

@@ -22,11 +22,11 @@ def create_booking():
     booking_customer_ref = data.get('booking_customer_ref')
     booking_time = data.get('booking_time')
     booking_duration = data.get('booking_duration')
-    booking_status = data.get('booking_status')
+    booking_status = data.get('booking_status','')
     booking_start_point = data.get('booking_start_point')
     booking_end_point = data.get('booking_end_point')
 
-    if not booking_driver_ref or not booking_customer_ref or not booking_time or not booking_duration or not booking_status or not booking_start_point:
+    if not booking_driver_ref or not booking_customer_ref or not booking_time or not booking_duration or not booking_start_point:
         return jsonify({'error': 'Missing required fields'}), 400
 
     Booking.create_booking(booking_driver_ref, booking_customer_ref, booking_time, booking_duration, booking_status, booking_start_point, booking_end_point)
