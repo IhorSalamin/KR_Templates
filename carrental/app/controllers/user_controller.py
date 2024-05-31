@@ -13,15 +13,17 @@ def get_user(user_id):
 @user_controller.route('/user', methods=['POST'])
 def create_user():
     data = request.get_json()
-    user_name = data.get('user_name')
-    user_email = data.get('user_email')
-    user_phone = data.get('user_phone')
-    user_password = data.get('user_password')
+    user_name = data.get('name')
+    user_email = data.get('address')
+    user_phone = data.get('phone')
+    user_password = data.get('user_password', '1234')
     user_gender = data.get('user_gender', '')
     user_role = data.get('user_role', '')
     user_details = data.get('user_details', '')
 
-    if not user_name or not user_email or not user_phone or not user_password:
+    print("user_name",user_name,user_phone,user_email)
+
+    if not user_name or not user_email or not user_phone: #or not user_password:
         return jsonify({'error': 'Missing required fields'}), 400
 
     User.create_user(user_name, user_email, user_phone, user_password, user_gender, user_role, user_details)
