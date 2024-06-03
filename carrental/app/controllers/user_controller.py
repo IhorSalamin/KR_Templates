@@ -13,9 +13,9 @@ def get_user(user_id):
 @user_controller.route('/user', methods=['POST'])
 def create_user():
     data = request.get_json()
-    user_name = data.get('name')
-    user_email = data.get('address')
-    user_phone = data.get('phone')
+    user_name = data.get('user_name')
+    user_email = data.get('user_email')
+    user_phone = data.get('user_phone')
     user_password = data.get('user_password', '1234')
     user_gender = data.get('user_gender', '')
     user_role = data.get('user_role', '')
