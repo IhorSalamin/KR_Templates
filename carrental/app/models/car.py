@@ -14,6 +14,7 @@ class Car:
         db = Database()
         query = "SELECT * FROM Cars"
         results = db.execute_query(query)
+        print("get_all_car - ", results)
         cars = []
         for row in results:
             cars.append(CarInstance(**row))

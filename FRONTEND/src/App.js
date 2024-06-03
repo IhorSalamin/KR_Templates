@@ -5,7 +5,7 @@ import RegisterClient from './pages/RegisterClient';
 import CreateBooking from './pages/CreateBooking';
 import Navigation from './components/Navigation';
 import AllBookings from './pages/AllBookings';
-import './App.css';
+//import './App.css';
 
 const App = () => {
    return (
